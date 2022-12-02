@@ -1,0 +1,46 @@
+﻿<Window x:Class="Bossfighter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bossfighter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".1*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Bossfighter" 
+               Grid.Row="0" Grid.ColumnSpan="2"
+               FontSize="25"
+               HorizontalContentAlignment="Center"/>
+        <StackPanel 
+            Grid.Row="1" Grid.Column="0" Background="Aqua">
+            <Label Name="Hrac" Content="Hráč" FontSize="20"/>
+            <Image Source="obrazky/player.png"/>
+            <ProgressBar x:Name="pgZivoty" 
+                         Foreground="Red" Value="30" Height="20"/>
+            <WrapPanel HorizontalAlignment="Center">
+                <Image Source="obrazky/attack.png" MaxHeight="50" Margin="10,0,10,0" MouseDown="Image_MouseDown"/>
+                <Image Source="obrazky/shield.png" MaxHeight="50" Margin="10,0,10,0" MouseDown="Image_MouseDown_1"/>
+                <Image Source="obrazky/heal.png" MaxHeight="50" Margin="10,0,10,0" MouseDown="Image_MouseDown_2"/>
+            </WrapPanel>
+        </StackPanel>
+        <StackPanel 
+            Grid.Row="1" Grid.Column="1" Background="Green">
+            <Label Name="Nepritel" Content="Nepřítel" FontSize="20"/>
+            <Image x:Name="imgEnemy"
+                   Source="obrazky/enemy1.png" MaxHeight="250"/>
+            <Label x:Name="lbEnemyAtt" Content="Útok: 50" FontSize="18" FontWeight="Bold"/>
+            <ProgressBar x:Name="pgEnemyZivoty" 
+                         Foreground="Red" Value="80" Height="20"/>
+            <Button x:Name="btnDalsiKolo" 
+                    Content="Další kolo" Background="DarkBlue" Foreground="White" FontSize="25" Click="btnDalsiKolo_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
